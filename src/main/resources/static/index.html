@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Molveno Restaurant</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+
+<body>
+
+    <h2>Molveno SWAN</h2>
+    <h4>System We All Need</h4>
+
+    <div>
+        <h4 id="whatToDo">What would you like to do?</h4>
+        </br>
+
+        <button id="newReservationButton">Make New Reservation</button>
+        <button id="showReservations">Show confirmed reservations</button>
+        <button id="showTables">Show available tables</button>
+        <button id="restaurantMenu">Start restaurant Menu</button>
+
+    </div>
+
+    <div id="checkAvailabilityForm">
+        <form>
+            <ul>
+                <li>
+                    <label>Reservation date:</label>
+                    <input id="dateInput" type="date">
+                </li>
+                <li>
+                    <label>Number of tables:</label>
+                    <input id="numOfTables" type="number">
+                </li>
+                <li>
+                    <button id="checkAvailabilityButton" onclick="function (){alert('Reservation is possible.');}">Check availability</button>
+                </li>
+            </ul>
+        </form>
+    </div>
+
+    <div id="divNewReservation">
+        <form>
+            <ul>
+                <li>
+                    <label>Reservation date:</label>
+                    <input id="dateInput" type="date">
+                </li>
+                <li>
+                    <label>Number of tables:</label>
+                    <input id="numOfTables" type="number">
+                </li>
+
+                <li>
+                    <label>Guest first name:</label>
+                    <input id="fnameInput" type="text">
+                </li>
+                <li>
+                    <label>Guest last name:</label>
+                    <input id="lnameInput" type="text">
+                </li>
+                <li>
+                    <label>Guest telephone number:</label>
+                    <input id="telInput" type="number">
+                </li>
+                <li>
+                    <label>Guest email address:</label>
+                    <input id="emailInput" type="email">
+                </li>
+                <li class="button">
+                    <button id="addReservationButton" type="button">Add reservation</button>
+                </li>
+            </ul>
+        </form>
+    </div>
+
+
+
+
+
+</body>
+
+</html>
