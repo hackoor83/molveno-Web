@@ -3,8 +3,6 @@ package com.example.molveno.mvc;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 public class Reservation {
@@ -13,11 +11,20 @@ public class Reservation {
     @GeneratedValue
     private Long id;
     private int numOfTables;
+    private int numOfPersons;
     private String guestFirstName;
     private String guestLastName;
     private String dateNtime;
     private int telNum;
     private String emailAddress;
+
+    public int getNumOfPersons() {
+        return numOfPersons;
+    }
+
+    public void setNumOfPersons(int numOfPersons) {
+        this.numOfPersons = numOfPersons;
+    }
 
     public int getTelNum() {
         return telNum;
@@ -34,8 +41,6 @@ public class Reservation {
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
-
-
 
     public Long getId() {
         return id;

@@ -5,8 +5,15 @@
     <meta charset="UTF-8">
     <title>Molveno Restaurant</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+
     <script src="/js/main.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="/js/tables.js"></script>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="css/main.css">
+
 </head>
 
 <body>
@@ -20,68 +27,137 @@
 
         <button id="newReservationButton">Make New Reservation</button>
         <button id="showReservations">Show confirmed reservations</button>
-        <button id="showTables">Show available tables</button>
+        <button id="manageTables">Manage tables</button>
         <button id="restaurantMenu">Start restaurant Menu</button>
 
     </div>
 
     <div id="checkAvailabilityForm">
-        <form>
-            <ul>
-                <li>
-                    <label>Reservation date:</label>
-                    <input id="dateInput" type="date">
-                </li>
-                <li>
-                    <label>Number of tables:</label>
-                    <input id="numOfTables" type="number">
-                </li>
-                <li>
-                    <button id="checkAvailabilityButton" onclick="function (){alert('Reservation is possible.');}">Check availability</button>
-                </li>
-            </ul>
-        </form>
+        <!-- <form> -->
+        <ul>
+            <li>
+                <label>Reservation date:</label>
+                <input id="dateInputChecker" type="date" required>
+            </li>
+            <li>
+                <label>Number of tables:</label>
+                <input id="numOfTablesChecker" type="number" required>
+            </li>
+            <li>
+                <label>Number of persons</label>
+                <input id="numOfPersonsChecker" type="number" required>
+            </li>
+            <li>
+                <button id="checkAvailabilityButton">Check availability</button>
+            </li>
+        </ul>
+        <!-- </form> -->
     </div>
 
-    <div id="divNewReservation">
-        <form>
-            <ul>
-                <li>
-                    <label>Reservation date:</label>
-                    <input id="dateInput" type="date">
-                </li>
-                <li>
-                    <label>Number of tables:</label>
-                    <input id="numOfTables" type="number">
-                </li>
+    <div id="newReservationForm">
+        <!-- <form id="newReservationForm"> -->
+        <ul>
+            <li>
+                <label>Reservation date:</label>
+                <input id="dateInput" type="date" required>
+            </li>
+            <li>
+                <label>Number of tables:</label>
+                <input id="numOfTables" type="number" required>
+            </li>
 
-                <li>
-                    <label>Guest first name:</label>
-                    <input id="fnameInput" type="text">
-                </li>
-                <li>
-                    <label>Guest last name:</label>
-                    <input id="lnameInput" type="text">
-                </li>
-                <li>
-                    <label>Guest telephone number:</label>
-                    <input id="telInput" type="number">
-                </li>
-                <li>
-                    <label>Guest email address:</label>
-                    <input id="emailInput" type="email">
-                </li>
-                <li class="button">
-                    <button id="addReservationButton" type="button">Add reservation</button>
-                </li>
-            </ul>
-        </form>
+            <li>
+                <label>Number of persons</label>
+                <input id="numOfPersons" type="number" required>
+            </li>
+
+            <li>
+                <label>Guest first name:</label>
+                <input id="fnameInput" type="text" required>
+            </li>
+            <li>
+                <label>Guest last name:</label>
+                <input id="lnameInput" type="text" required>
+            </li>
+            <li>
+                <label>Guest telephone number:</label>
+                <input id="telInput" type="number" required>
+            </li>
+            <li>
+                <label>Guest email address:</label>
+                <input id="emailInput" type="email" required>
+            </li>
+            <li class="button">
+                <button id="addReservationButton" type="button">Add reservation</button>
+            </li>
+        </ul>
+        <!-- </form> -->
+    </div>
+    <div id="confirmedReservationsTableDiv">
+        <table id="reservationsTable">
+            <thead>
+                <tr>
+                    <th>Reservation ID</th>
+                    <th>Number of tables</th>
+                    <th>Number of persons</th>
+                    <th>Guest First Name</th>
+                    <th>Guest Last Name</th>
+                    <th>Reservation date</th>
+                    <th>Telephone number</th>
+                    <th>Email address</th>
+                </tr>
+            </thead>
+            <tbody id="reservationTableBody"></tbody>
+        </table>
     </div>
 
+    <div id="manageTablesForm">
+        <div id="manageTablesTable">
+            <table id="tablesTable">
+                <thead>
+                    <tr>
+                        <th>Table ID</th>
+                        <th>Shape</th>
+                        <th>Seats</th>
+                        <th>Count</th>
+                    </tr>
+                </thead>
 
+                <tbody id="tablesTableBody">
 
+                </tbody>
 
+            </table>
+            <button class="addTableBtn">Add a table</button>
+        </div>
 
+        <div id="addTableForm">
+            <ul>
+                <li>
+                    <label>Select shape:</label>
+                    <select id="selectShapeInput" required>
+                        <option value="select">Select...</option>
+                        <option value="square">Square</option>
+                        <option value="rectangle">Rectangle</option>
+                        <option value="Circle">Circle</option>
+                    </select>
+                </li>
+                <li>
+                    <label>Number of seats:</label>
+                    <input id="numbOfSeatsInput" type="number" required>
+                </li>
+                <li>
+                    <label>Count</label>
+                    <input id="countOfTableTypeInput" type="number" required>
+                </li>
+                <li>
+                    <button id="saveTable">Save table</button>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
 </body>
 
 </html>
