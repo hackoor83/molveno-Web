@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Table {
+public class RestaurantTables {
 
     @Id
     @GeneratedValue
@@ -14,12 +14,7 @@ public class Table {
     private String shape;
     private int count;
 
-//    enum Shape{
-//        SQUARE,
-//        RECTANGLE,
-//        CIRCLE
-//    }
-
+    public RestaurantTables(){}
 
     public Long getId() {
         return id;

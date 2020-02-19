@@ -2,8 +2,12 @@ $(document).ready(function() {
     $("#tablesTable").DataTable();
     $("#manageTablesTable").hide();
     $("#addTableForm").hide();
-    $("#manageTables").click(showTablesManagement);
-    $("#addTableBtn").click(showAddTableForm);
+
+    $("#listTablesButton").click(showTablesManagement);
+
+    $("#addTableButton").click(showAddTableForm);
+
+    $("#saveTableBtn").click(saveTable);
 
 });
 
@@ -11,10 +15,11 @@ function showTablesManagement() {
     $("#checkAvailabilityForm").hide();
     $("#newReservationForm").hide();
     $("#confirmedReservationsTableDiv").hide();
+    $("#addTableForm").hide();
     $("#manageTablesTable").show();
     console.log("before the get method");
 
-    $.get("api/table", function(tables) {
+    $.get("api/restauranttables", function(tables) {
         $("#tablesTableBody").empty();
         console.log(tables);
 
@@ -42,6 +47,9 @@ function showAddTableForm() {
     $("#newReservationForm").hide();
     $("#confirmedReservationsTableDiv").hide();
 
+}
+
+function saveTable() {
     let table = {
         numOfSeats: $("#numbOfSeatsInput").val(),
         shape: $("#selectShapeInput").val(),
@@ -51,7 +59,7 @@ function showAddTableForm() {
     let tableJsonObject = JSON.stringify(table);
 
     $.ajax({
-        url: "api/table",
+        url: "api/restauranttables",
         type: "POST",
         contentType: "application/json",
         data: tableJsonObject,

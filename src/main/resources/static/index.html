@@ -6,12 +6,13 @@
     <title>Molveno Restaurant</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+    <link rel="icon" href="data:,">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
 
     <script src="/js/main.js"></script>
     <script src="/js/tables.js"></script>
     <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
 
 </head>
@@ -21,14 +22,46 @@
     <h2>Molveno SWAN</h2>
     <h4>System We All Need</h4>
 
-    <div>
-        <h4 id="whatToDo">What would you like to do?</h4>
+    <div id="whatToDo">
+        <h4>What would you like to do?</h4>
         </br>
 
-        <button id="newReservationButton">Make New Reservation</button>
-        <button id="showReservations">Show confirmed reservations</button>
-        <button id="manageTables">Manage tables</button>
-        <button id="restaurantMenu">Start restaurant Menu</button>
+        <div id="reservationButtons">
+            <h4>Reservations Manager</h4>
+            <ul>
+                <li>
+                    <button class="btn btn-primary" id="newReservationButton">Make New Reservation</button>
+                </li>
+                <li>
+                    <button id="showReservations">Show confirmed reservations</button>
+                </li>
+            </ul>
+        </div>
+        <div id="tablesManagementButtons">
+            <h4>Tables Manager</h4>
+            <ul>
+                <li>
+                    <button id="addTableButton">Add a table</button>
+                </li>
+                <li>
+                    <button id="listTablesButton">List tables</button>
+                </li>
+            </ul>
+        </div>
+        <div id="stockManagementButtons">
+            <h4>Stock Manager</h4>
+            <ul>
+                <li>
+                    <button id="createDishButton">New dish</button>
+                </li>
+                <li>
+                    <button id="createOfferMenu">New offer menu</button>
+                </li>
+                <li>
+                    <button id="listStockItems">List stock items</button>
+                </li>
+            </ul>
+        </div>
 
     </div>
 
@@ -128,7 +161,7 @@
                 </tbody>
 
             </table>
-            <button class="addTableBtn">Add a table</button>
+            <!-- <button id="addTableBtn">Add a table</button> -->
         </div>
 
         <div id="addTableForm">
@@ -137,8 +170,8 @@
                     <label>Select shape:</label>
                     <select id="selectShapeInput" required>
                         <option value="select">Select...</option>
-                        <option value="square">Square</option>
-                        <option value="rectangle">Rectangle</option>
+                        <option value="Square">Square</option>
+                        <option value="Rectangle">Rectangle</option>
                         <option value="Circle">Circle</option>
                     </select>
                 </li>
@@ -151,7 +184,7 @@
                     <input id="countOfTableTypeInput" type="number" required>
                 </li>
                 <li>
-                    <button id="saveTable">Save table</button>
+                    <button id="saveTableBtn">Save table</button>
                 </li>
             </ul>
 

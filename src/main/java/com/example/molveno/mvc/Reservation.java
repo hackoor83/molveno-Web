@@ -18,6 +18,8 @@ public class Reservation {
     private int telNum;
     private String emailAddress;
 
+    public Reservation(){}
+
     public int getNumOfPersons() {
         return numOfPersons;
     }

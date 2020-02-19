@@ -12,6 +12,7 @@ $(document).ready(function() {
 function showChecker() {
     $("#checkAvailabilityForm").show();
     $("#manageTablesTable").hide();
+    $("#addTableForm").hide();
     $("#confirmedReservationsTableDiv").hide();
     $("#checkAvailabilityButton").click(function() {
         console.log("button clicked");
@@ -25,6 +26,7 @@ function showChecker() {
 
 
 function addReservation() {
+
     let reservation = {
         numOfTables: $("#numOfTables").val(),
         numOfPersons: $("#numOfPersons").val(),
@@ -64,6 +66,7 @@ function showReservations() {
     console.log("show reservations clicked");
 
     $("#newReservationForm").hide();
+    $("#addTableForm").hide();
     $("#manageTablesTable").hide();
     $("#checkAvailabilityForm").hide();
     $("#confirmedReservationsTableDiv").show();

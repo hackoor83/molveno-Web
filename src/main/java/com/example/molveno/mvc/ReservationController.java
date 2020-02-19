@@ -11,6 +11,7 @@ public class ReservationController {
 
     @Autowired
     private ReservationRepository reservationRepository;
+    @Autowired
     private TablesRepository tablesRepository;
 
 
@@ -19,8 +20,8 @@ public class ReservationController {
         return reservationRepository.findAll();
     }
 
-    @GetMapping("/table")
-    public List<Table> getTables(){
+    @GetMapping("/restauranttables")
+    public List<RestaurantTables> getTables(){
         return tablesRepository.findAll();
     }
 
@@ -29,9 +30,9 @@ public class ReservationController {
         reservationRepository.save(reservation);
     }
 
-    @PostMapping("/table")
-    public void addTable(@RequestBody Table table){
-        tablesRepository.save(table);
+    @PostMapping("/restauranttables")
+    public void addTable(@RequestBody RestaurantTables restaurantTables){
+        tablesRepository.save(restaurantTables);
     }
 
     @DeleteMapping("/reservation/{id}")
@@ -39,7 +40,7 @@ public class ReservationController {
         reservationRepository.deleteById(id);
     }
 
-    @DeleteMapping("/table/{id}")
+    @DeleteMapping("/restauranttables/{id}")
     public void deleteTable(@PathVariable Long id){
         tablesRepository.deleteById(id);
     }
